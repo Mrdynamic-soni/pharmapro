@@ -24,17 +24,11 @@ for file in os.listdir():
         i=1
         for j in soup.find_all('tr')[1:]:   
             row_data = j.find_all('td')
-            row = [tr.text for tr in row_data]
+            row = [tr.text for tr in row_data] 
+            print(len(row))
             if len(row)==1:
                 continue
             sheet_obj.cell(row=row_count,column=i).value = row[1]
             wb_obj.save(path)
             i+=1
         row_count+=1
-
-
-
-
-
-        # print(row[1])
-        # length = len(df)
